@@ -1,0 +1,1236 @@
+/* ===================================
+   VIDYUN-MANAS - Game Styles
+   =================================== */
+
+/* ===================================
+   Game Start Screen
+   =================================== */
+.game-start {
+    text-align: center;
+    padding: var(--space-xl);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.game-start-header {
+    margin-bottom: var(--space-xl);
+}
+
+.game-start-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-xl);
+    font-size: 3rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.game-start-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: var(--space-sm);
+}
+
+.game-start-description {
+    color: var(--text-secondary);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.game-start-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.info-card {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.info-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+    color: var(--accent-cyan);
+}
+
+.info-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+
+.info-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.game-start-level {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.level-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.level-difficulty {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.level-description {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: var(--space-sm);
+}
+
+.game-start-controls {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+}
+
+/* ===================================
+   Countdown Overlay
+   =================================== */
+.countdown-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 15, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.countdown-number {
+    font-size: 10rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: countdownPulse 1s ease-in-out;
+}
+
+@keyframes countdownPulse {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===================================
+   Common Game Elements
+   =================================== */
+.game-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.game-target-area {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: 800;
+    pointer-events: none;
+    animation: feedbackPop 0.5s ease-out forwards;
+}
+
+@keyframes feedbackPop {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+.feedback-correct {
+    color: var(--accent-emerald);
+}
+
+.feedback-wrong {
+    color: var(--accent-red);
+}
+
+/* ===================================
+   Neural Snap Game
+   =================================== */
+.neural-snap-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: crosshair;
+}
+
+.neural-target {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--bg-primary);
+    animation: targetAppear 0.2s ease-out;
+    box-shadow: var(--shadow-glow-cyan);
+}
+
+@keyframes targetAppear {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.neural-target:hover {
+    transform: scale(1.1);
+}
+
+.neural-target::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 3px solid var(--accent-cyan);
+    border-radius: var(--radius-full);
+    animation: targetPulse 1s ease-in-out infinite;
+}
+
+@keyframes targetPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.5; }
+}
+
+.neural-progress {
+    padding: var(--space-md);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.neural-progress-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.neural-progress-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.neural-stat {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+}
+
+/* ===================================
+   Color Blitz Game
+   =================================== */
+.color-blitz-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    height: 100%;
+}
+
+.color-prompt {
+    text-align: center;
+}
+
+.color-word {
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.color-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 400px;
+}
+
+.color-btn {
+    height: 80px;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-transform: uppercase;
+    color: var(--bg-primary);
+}
+
+.color-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.color-btn:active {
+    transform: scale(0.95);
+}
+
+.color-btn.red { background: #ef4444; }
+.color-btn.blue { background: #3b82f6; }
+.color-btn.green { background: #10b981; }
+.color-btn.yellow { background: #f59e0b; }
+.color-btn.purple { background: #a855f7; }
+.color-btn.orange { background: #f97316; }
+.color-btn.pink { background: #ec4899; }
+.color-btn.cyan { background: #06b6d4; }
+
+.color-score {
+    text-align: center;
+}
+
+.color-score-value {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+}
+
+.color-score-label {
+    color: var(--text-muted);
+}
+
+/* ===================================
+   Rapid Math Game
+   =================================== */
+.rapid-math-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    height: 100%;
+    padding: var(--space-xl);
+}
+
+.math-problem {
+    text-align: center;
+}
+
+.math-equation {
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    margin-bottom: var(--space-lg);
+}
+
+.math-input {
+    width: 200px;
+    padding: var(--space-lg);
+    font-size: 2rem;
+    font-family: var(--font-mono);
+    text-align: center;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+}
+
+.math-input:focus {
+    border-color: var(--accent-cyan);
+    outline: none;
+    box-shadow: var(--shadow-glow-cyan);
+}
+
+.math-stats {
+    display: flex;
+    gap: var(--space-xl);
+}
+
+.math-stat {
+    text-align: center;
+}
+
+.math-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+
+.math-stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+/* ===================================
+   Sequence Break Game
+   =================================== */
+.sequence-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: var(--space-lg);
+}
+
+.sequence-grid {
+    display: grid;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.sequence-cell {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.sequence-cell:hover:not(.clicked) {
+    border-color: var(--accent-cyan);
+}
+
+.sequence-cell.clicked {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+}
+
+.sequence-cell.wrong {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--accent-red);
+    color: var(--accent-red);
+    animation: shake 0.5s ease;
+}
+
+.sequence-cell.correct {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--accent-emerald);
+    color: var(--accent-emerald);
+}
+
+.sequence-progress {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.sequence-current {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.sequence-time {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    color: var(--accent-cyan);
+}
+
+/* ===================================
+   Grid Lock Memory Game
+   =================================== */
+.grid-lock-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-xl);
+}
+
+.grid-lock-grid {
+    display: grid;
+    gap: var(--space-sm);
+}
+
+.grid-lock-cell {
+    width: 60px;
+    height: 60px;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    transition: var(--transition-fast);
+}
+
+.grid-lock-cell.active {
+    background: var(--gradient-primary);
+    border-color: var(--accent-cyan);
+    box-shadow: var(--shadow-glow-cyan);
+}
+
+.grid-lock-cell.selected {
+    background: rgba(0, 212, 255, 0.3);
+    border-color: var(--accent-cyan);
+}
+
+.grid-lock-instruction {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+/* ===================================
+   Card Cascade Memory Game
+   =================================== */
+.card-cascade-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: var(--space-lg);
+}
+
+.card-cascade-grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.game-card {
+    width: 80px;
+    height: 100px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.game-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.game-card.flipped .game-card-inner {
+    transform: rotateY(180deg);
+}
+
+.game-card-front,
+.game-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-card-front {
+    background: var(--gradient-primary);
+    font-size: 2rem;
+    color: var(--bg-primary);
+}
+
+.game-card-back {
+    background: var(--bg-tertiary);
+    transform: rotateY(180deg);
+    font-size: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.game-card.matched .game-card-back {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--accent-emerald);
+}
+
+/* ===================================
+   Echo Recall Memory Game
+   =================================== */
+.echo-recall-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-xl);
+}
+
+.echo-sequence {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.echo-item {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    transition: var(--transition-fast);
+}
+
+.echo-item.active {
+    background: var(--gradient-primary);
+    border-color: var(--accent-cyan);
+    animation: echoFlash 0.5s ease;
+}
+
+@keyframes echoFlash {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.echo-item.correct {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--accent-emerald);
+}
+
+.echo-item.wrong {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--accent-red);
+}
+
+.echo-input {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.echo-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.echo-btn:hover {
+    border-color: var(--accent-cyan);
+    background: rgba(0, 212, 255, 0.1);
+}
+
+/* ===================================
+   Pattern Oracle Logic Game
+   =================================== */
+.pattern-oracle-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-xl);
+    padding: var(--space-lg);
+}
+
+.pattern-sequence {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pattern-item {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    font-size: 2rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+.pattern-question {
+    font-size: 2rem;
+    color: var(--text-muted);
+}
+
+.pattern-options {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+}
+
+.pattern-option {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    font-size: 2rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.pattern-option:hover {
+    border-color: var(--accent-cyan);
+    transform: scale(1.05);
+}
+
+.pattern-option.correct {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--accent-emerald);
+}
+
+.pattern-option.wrong {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--accent-red);
+}
+
+/* ===================================
+   Reaction Test
+   =================================== */
+.reaction-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.reaction-screen {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.reaction-screen.waiting {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+.reaction-screen.ready {
+    background: var(--accent-red);
+    color: white;
+    animation: reactionPulse 0.3s ease infinite;
+}
+
+@keyframes reactionPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.reaction-screen.click {
+    background: var(--accent-emerald);
+    color: white;
+}
+
+.reaction-time {
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    margin-top: var(--space-xl);
+}
+
+/* ===================================
+   Focus Zone Game
+   =================================== */
+.focus-zone-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-lg);
+}
+
+.focus-task {
+    background: var(--bg-tertiary);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.focus-task-prompt {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+}
+
+.focus-task-question {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.focus-distraction {
+    position: absolute;
+    padding: var(--space-md) var(--space-lg);
+    background: var(--accent-amber);
+    color: var(--bg-primary);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    animation: distractionAppear 0.3s ease;
+    cursor: pointer;
+}
+
+@keyframes distractionAppear {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.focus-score {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* ===================================
+   Mental Math Game
+   =================================== */
+.mental-math-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: var(--space-xl);
+}
+
+.mental-math-display {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.mental-math-problem {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    margin-bottom: var(--space-lg);
+}
+
+.mental-math-input {
+    width: 250px;
+    padding: var(--space-lg);
+    font-size: 2rem;
+    font-family: var(--font-mono);
+    text-align: center;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+}
+
+.mental-math-stats {
+    display: flex;
+    gap: var(--space-2xl);
+}
+
+/* ===================================
+   Game Results Screen
+   =================================== */
+.game-results {
+    text-align: center;
+    padding: var(--space-xl);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.results-header {
+    margin-bottom: var(--space-xl);
+}
+
+.results-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto var(--space-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    font-size: 3rem;
+    animation: resultsBounce 0.5s ease;
+}
+
+@keyframes resultsBounce {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.results-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: var(--space-sm);
+}
+
+.results-subtitle {
+    color: var(--text-secondary);
+}
+
+.results-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.results-stat {
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+}
+
+.results-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.results-stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: var(--space-xs);
+}
+
+.results-comparison {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.comparison-title {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
+}
+
+.comparison-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) 0;
+}
+
+.comparison-label {
+    color: var(--text-secondary);
+}
+
+.comparison-values {
+    display: flex;
+    gap: var(--space-md);
+    font-family: var(--font-mono);
+}
+
+.comparison-prev {
+    color: var(--text-muted);
+}
+
+.comparison-current {
+    color: var(--accent-cyan);
+    font-weight: 600;
+}
+
+.comparison-change {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+}
+
+.comparison-change.positive {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent-emerald);
+}
+
+.comparison-change.negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--accent-red);
+}
+
+.results-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+}
+
+/* ===================================
+   Dual N-Back Game
+   =================================== */
+.dual-nback-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-xl);
+}
+
+.dual-nback-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+    position: relative;
+}
+
+.nback-position {
+    width: 80px;
+    height: 80px;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.nback-position.active {
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow-cyan);
+}
+
+.nback-position.wrong {
+    background: rgba(239, 68, 68, 0.3);
+    border-color: var(--accent-red);
+}
+
+.nback-position.correct {
+    background: rgba(16, 185, 129, 0.3);
+    border-color: var(--accent-emerald);
+}
+
+.dual-nback-controls {
+    display: flex;
+    gap: var(--space-lg);
+}
+
+.nback-btn {
+    padding: var(--space-md) var(--space-xl);
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.nback-btn:hover {
+    border-color: var(--accent-cyan);
+}
+
+.nback-btn.match {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--accent-cyan);
+}
+
+/* ===================================
+   Memory Palace Game
+   =================================== */
+.memory-palace-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-xl);
+    padding: var(--space-lg);
+}
+
+.memory-palace-location {
+    width: 100%;
+    max-width: 600px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+}
+
+.location-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+}
+
+.location-number {
+    font-size: 4rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.memory-palace-item {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: var(--space-md);
+}
+
+.memory-palace-recall {
+    width: 100%;
+    max-width: 600px;
+}
+
+.recall-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.recall-slot {
+    background: var(--bg-tertiary);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recall-slot-number {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.recall-slot-input {
+    width: 100%;
+    padding: var(--space-sm);
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.recall-slot-input:focus {
+    outline: none;
+}
+
+.recall-slot.correct {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--accent-emerald);
+    border-style: solid;
+}
+
+.recall-slot.wrong {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: var(--accent-red);
+    border-style: solid;
+}
+
+/* ===================================
+   Binary Translator Game
+   =================================== */
+.binary-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: var(--space-xl);
+    padding: var(--space-lg);
+}
+
+.binary-problem {
+    text-align: center;
+}
+
+.binary-number {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-mono);
+    margin-bottom: var(--space-md);
+}
+
+.binary-type {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.binary-input {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.binary-answer {
+    width: 200px;
+    padding: var(--space-lg);
+    font-size: 2rem;
+    font-family: var(--font-mono);
+    text-align: center;
+    background: var(--bg-tertiary);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+}
