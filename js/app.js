@@ -5,12 +5,13 @@
 // Firebase Configuration
 // ===================================
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyD4Mgs8-_UfaXdVypG5By5UPFO0CrlTgDY",
+    authDomain: "vidyun-manas.firebaseapp.com",
+    projectId: "vidyun-manas",
+    storageBucket: "vidyun-manas.firebasestorage.app",
+    messagingSenderId: "158686953268",
+    appId: "1:158686953268:web:789a247353a7dd0a006f61",
+    measurementId: "G-9098LGRNCS"
 };
 
 // Initialize Firebase
