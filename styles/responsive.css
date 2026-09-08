@@ -1,0 +1,648 @@
+/* ===================================
+   VIDYUN-MANAS - Responsive Styles
+   =================================== */
+
+/* ===================================
+   Tablet (768px - 1024px)
+   =================================== */
+@media (max-width: 1024px) {
+    :root {
+        --sidebar-width: var(--sidebar-collapsed);
+    }
+
+    .sidebar {
+        width: var(--sidebar-collapsed);
+        overflow: hidden;
+    }
+
+    .sidebar-header {
+        padding: var(--space-md);
+        justify-content: center;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+
+    .nav-item {
+        justify-content: center;
+        padding: var(--space-md);
+    }
+
+    .sidebar-footer {
+        padding: var(--space-sm);
+    }
+
+    .user-stats-mini {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+
+    .main-content {
+        margin-left: var(--sidebar-collapsed);
+        padding: var(--space-lg);
+    }
+
+    /* Dashboard Responsive */
+    .quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .readiness-tests {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+    }
+
+    .readiness-habits {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .weekly-days {
+        gap: var(--space-xs);
+    }
+
+    .weekly-day {
+        padding: var(--space-sm);
+    }
+
+    /* Games Grid */
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    /* Analytics */
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Habits */
+    .habits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Review */
+    .review-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===================================
+   Mobile (< 768px)
+   =================================== */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 0;
+    }
+
+    /* Hide Desktop Sidebar */
+    .sidebar {
+        display: none;
+    }
+
+    /* Show Mobile Nav */
+    .mobile-nav {
+        display: flex;
+    }
+
+    /* Adjust Main Content */
+    .main-content {
+        margin-left: 0;
+        padding: var(--space-md);
+        padding-bottom: calc(var(--mobile-nav-height) + var(--space-lg));
+    }
+
+    /* Typography */
+    h1 { font-size: 1.75rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    /* Card Adjustments */
+    .card {
+        padding: var(--space-md);
+    }
+
+    .card-value {
+        font-size: 1.5rem;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Quick Stats */
+    .quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-sm);
+    }
+
+    .quick-stat {
+        padding: var(--space-md);
+    }
+
+    .quick-stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+
+    .quick-stat-value {
+        font-size: 1.25rem;
+    }
+
+    /* Brain Age */
+    .brain-age-value {
+        font-size: 3.5rem;
+    }
+
+    /* Workout Card */
+    .workout-games {
+        gap: var(--space-sm);
+    }
+
+    .workout-game {
+        padding: var(--space-sm);
+    }
+
+    .workout-game-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    /* Readiness */
+    .readiness-tests {
+        grid-template-columns: 1fr;
+    }
+
+    .readiness-test {
+        padding: var(--space-md);
+    }
+
+    .readiness-habits {
+        grid-template-columns: 1fr;
+    }
+
+    /* Weekly Overview */
+    .weekly-days {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+    }
+
+    .weekly-day {
+        padding: var(--space-xs);
+    }
+
+    .weekly-day-name {
+        font-size: 0.5rem;
+    }
+
+    .weekly-day-date {
+        font-size: 0.75rem;
+    }
+
+    .weekly-day-indicator {
+        width: 6px;
+        height: 6px;
+    }
+
+    /* Games Grid */
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .game-card {
+        padding: var(--space-md);
+    }
+
+    .game-card-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+    }
+
+    .game-card-stats {
+        gap: var(--space-md);
+    }
+
+    /* Analytics */
+    .analytics-grid {
+        gap: var(--space-md);
+    }
+
+    .analytics-card {
+        padding: var(--space-md);
+    }
+
+    .analytics-period {
+        flex-wrap: wrap;
+    }
+
+    .category-row {
+        flex-wrap: wrap;
+    }
+
+    .category-name {
+        width: 100%;
+        margin-bottom: var(--space-xs);
+    }
+
+    .category-bar-container {
+        width: 100%;
+    }
+
+    /* Achievements */
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    /* Settings */
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .settings-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+
+    .settings-row .toggle {
+        align-self: flex-end;
+    }
+
+    /* Habits */
+    .habits-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+
+    .habits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Weekly Review */
+    .review-summary {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .review-stat {
+        padding: var(--space-md);
+    }
+
+    .review-stat-value {
+        font-size: 2rem;
+    }
+
+    /* Training */
+    .training-tabs {
+        overflow-x: auto;
+        padding-bottom: var(--space-sm);
+    }
+
+    .training-tab {
+        white-space: nowrap;
+    }
+
+    .ai-focus-areas {
+        flex-direction: column;
+    }
+
+    /* Game Modal */
+    .game-modal-content {
+        max-height: 100vh;
+        border-radius: 0;
+        padding: var(--space-md);
+    }
+
+    .game-header {
+        flex-direction: column;
+        gap: var(--space-sm);
+        text-align: center;
+    }
+
+    .game-stats {
+        justify-content: center;
+    }
+
+    .game-title {
+        font-size: 1rem;
+    }
+
+    /* Game Specific */
+    .neural-target {
+        width: 50px;
+        height: 50px;
+    }
+
+    .color-btn {
+        height: 60px;
+        font-size: 1rem;
+    }
+
+    .color-word {
+        font-size: 2.5rem;
+    }
+
+    .math-equation {
+        font-size: 2.5rem;
+    }
+
+    .math-input {
+        width: 150px;
+        padding: var(--space-md);
+        font-size: 1.5rem;
+    }
+
+    .pattern-item,
+    .pattern-option {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .pattern-options {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Toast */
+    .toast-container {
+        left: var(--space-md);
+        right: var(--space-md);
+    }
+
+    .toast {
+        min-width: auto;
+        width: 100%;
+    }
+
+    /* Modal */
+    .modal-content {
+        max-width: 100%;
+        margin: var(--space-md);
+        padding: var(--space-lg);
+    }
+
+    /* Auth */
+    .auth-container {
+        padding: var(--space-lg);
+    }
+
+    .auth-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ===================================
+   Small Mobile (< 480px)
+   =================================== */
+@media (max-width: 480px) {
+    .main-content {
+        padding: var(--space-sm);
+        padding-bottom: calc(var(--mobile-nav-height) + var(--space-md));
+    }
+
+    .page {
+        margin: 0 calc(-1 * var(--space-sm));
+    }
+
+    .page > .card,
+    .page > .stats-grid,
+    .page > .games-grid {
+        margin-left: var(--space-sm);
+        margin-right: var(--space-sm);
+    }
+
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1rem; }
+
+    .page-title {
+        font-size: 1.25rem;
+    }
+
+    .brain-age-value {
+        font-size: 3rem;
+    }
+
+    .quick-stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .workout-start-btn {
+        padding: var(--space-md);
+    }
+
+    .weekly-nav {
+        display: none;
+    }
+
+    /* Game Modal */
+    .game-modal-content {
+        padding: var(--space-sm);
+    }
+
+    .game-area {
+        min-height: 300px;
+    }
+
+    /* Results */
+    .results-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .results-actions {
+        flex-direction: column;
+    }
+
+    .results-actions .btn {
+        width: 100%;
+    }
+
+    /* Form Inputs */
+    input, select, textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* ===================================
+   Landscape Mobile
+   =================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .mobile-nav {
+        height: 50px;
+    }
+
+    .main-content {
+        padding-bottom: calc(50px + var(--space-md));
+    }
+
+    .mobile-nav-item span {
+        display: none;
+    }
+
+    .mobile-nav-item i {
+        font-size: 1.25rem;
+    }
+}
+
+/* ===================================
+   Touch Device Optimizations
+   =================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .btn:hover,
+    .nav-item:hover,
+    .game-card:hover,
+    .list-item:hover {
+        transform: none;
+    }
+
+    /* Add active states */
+    .btn:active,
+    .nav-item:active,
+    .game-card:active {
+        transform: scale(0.98);
+        opacity: 0.9;
+    }
+
+    /* Larger touch targets */
+    .nav-item {
+        padding: var(--space-md);
+    }
+
+    /* Disable tap highlight */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* ===================================
+   High DPI Displays
+   =================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .brain-icon svg,
+    .logo-small svg,
+    .logo-large svg {
+        shape-rendering: geometricPrecision;
+    }
+}
+
+/* ===================================
+   Reduced Motion
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .loading-progress,
+    .countdown-number,
+    .neural-target::after {
+        animation: none;
+    }
+}
+
+/* ===================================
+   Dark Mode (already dark, but for system preference)
+   =================================== */
+@media (prefers-color-scheme: light) {
+    /* Keep our dark theme regardless */
+    :root {
+        color-scheme: dark;
+    }
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    .sidebar,
+    .mobile-nav,
+    .btn,
+    .toast-container,
+    .game-modal {
+        display: none !important;
+    }
+
+    .main-content {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .card {
+        border: 1px solid #ccc;
+        background: white;
+        color: black;
+    }
+}
+
+/* ===================================
+   Desktop Large Screens (> 1440px)
+   =================================== */
+@media (min-width: 1440px) {
+    .main-content {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sidebar {
+        width: 300px;
+    }
+
+    .main-content {
+        margin-left: 300px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .analytics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ===================================
+   Ultra Wide (> 1920px)
+   =================================== */
+@media (min-width: 1920px) {
+    :root {
+        --sidebar-width: 320px;
+    }
+
+    body {
+        font-size: 18px;
+    }
+
+    .main-content {
+        max-width: 1600px;
+    }
+}
