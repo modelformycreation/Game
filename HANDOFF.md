@@ -180,3 +180,7 @@ Consult SPEC's full 30-game list to reconcile the missing seven definitions. Do 
 9. Reconcile README/spec/report with verified functionality, then mark the PR ready only when appropriate.
 
 Do not promise completeness based on function existence, generated CSS, or a syntax check. The next model should use the actual filesystem and tests as the source of truth and report remaining gaps plainly.
+
+### Delivery update
+
+The first push was rejected because the remote session branch already had commits `c7808cf` (initial platform) and `156427d` (Firebase configuration). Fetched and merged that history without force-pushing. Overlapping files retained the current local prototype and documentation after comparison; the older remote contained the original option generator and fewer game methods. This explains a possible version difference in the user's observations, but the served revision still needs browser verification. Merge conflicts were resolved; this is not an outstanding rebase task.
